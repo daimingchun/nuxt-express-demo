@@ -1,6 +1,7 @@
 import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter'
 import { Goods } from './data/goods'
+
 console.log('进入mockjs')
 
 let _Goods = Goods

@@ -1,4 +1,4 @@
 module.exports = {
-	HOST: 'shop.jiehun.cn',
+	HOST: 'shop.dmp.hzjiehun.bid',
 	NODE_ENV: 'production'
 }

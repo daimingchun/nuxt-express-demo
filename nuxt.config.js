@@ -15,7 +15,7 @@ module.exports = {
 
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      {rel: 'stylesheet', href: 'https://s1.tthunbohui.cn/static/css/jiehun.min-08103396.css'}
+      { rel: 'stylesheet', href: 'https://s1.tthunbohui.cn/static/css/jiehun.min-08103396.css'}
     ]
   },
   env: envConfig,
@@ -23,7 +23,9 @@ module.exports = {
   ** Global CSS
   */
   //css: ['~/assets/css/main.css'],
-  plugins: ['~/plugins/element-ui'],
+  plugins: [
+  {src: '~/plugins/element-ui', ssr: true}, 
+  { src:  '~/plugins/mint-ui', ssr: true }],
   /*
   ** Add axios globally
   */

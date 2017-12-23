@@ -37,7 +37,7 @@ export default {
       pageNum: '1',
       pageSize: '2'
     }).then(res => {
-      console.log('请求Mock接口测试',res)
+      console.log('异步接口测试',res)
       //return {goods:res.data.data.list}
     })
   }

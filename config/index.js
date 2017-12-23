@@ -1,4 +1,5 @@
 console.log('进入config目录',process.env.NODE_ENV)
+
 const merge = require('webpack-merge')
 //开发环境
 const devConfig = require('./dev.config')
@@ -13,14 +14,13 @@ let config = devConfig
 
 switch(process.env.NODE_ENV){
 	case 'test':
-		config = merge(devConfig, testConfig)
+		config = testConfig
 		break
 	case 'present':
-		config = merge(devConfig, preConfig)
+		config = preConfig
 		break
 	case 'production':
-		config = merge(devConfig, prodConfig)
+		config = prodConfig
 		break
 }
-console.log('合并后的数据', config)
 module.exports = config
