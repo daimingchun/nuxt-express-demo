@@ -3,6 +3,11 @@
 * 基于Vue的SSR技术方案，需要部署在Node服务环境下
 * 该方案采用了nuxtjs框架 官方 https://nuxtjs.org/ 来做服务端渲染
 
+### 2017-12-24
+ * 增加vuex用于管理组件之间的状态（数据）
+  * 由于是ssr方案，感觉vuex的用处不会太大
+ * 增加gulp
+  * 使用gulp是用来对一些静态资源进行处理，例如图片压缩、样式添加前缀等等
 
 ### 2017-12-22
  * 增加第三方mint-ui 官方 http://mint-ui.github.io/#!/zh-cn
