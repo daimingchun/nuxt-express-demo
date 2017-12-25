@@ -7,7 +7,8 @@
       <mt-button icon="more" slot="right"></mt-button>
     </mt-header>
     <h1 class="title">
-      USERS
+      
+      这是iconfont图标<i class="iconfont icon-tag"></i>
     </h1>
     <ul class="users">
 <!--       <li v-for="(user, index) in users" :key="index" class="user">
@@ -32,7 +33,7 @@
 
 <script>
 import axios from '~/plugins/axios'
-
+import browsers from '~/static/js/browsers'
 export default {
   async asyncData () {
     // let { data } = await axios.get('/api/users')
@@ -44,7 +45,7 @@ export default {
     }
   },
   mounted(){
-    console.log(this.users)
+    console.log(browsers())
   }
 }
 </script>

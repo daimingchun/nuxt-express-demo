@@ -1,27 +1,20 @@
 import { Router } from 'express'
-
+import axios from 'axios'
+import { getGoodsData } from '~/api'
 const router = Router()
 
-// Mock Users
-const users = [
-  { name: 'Alexandre' },
-  { name: 'Pooya' },
-  { name: 'Sébastien' }
-]
 
-/* GET users listing. */
-router.get('/users', function (req, res, next) {
-  res.json(users)
+router.get('/goods', 
+  getGoodsData({
+    storeId: '10049',
+    productStatus: '4',
+    pageNum: '1',
+    pageSize: '2'
+  }), 
+  function (req, res, next) {
+    console.log('这是周node接口', res)
+    res.json(res)
 })
 
-/* GET user by ID. */
-router.get('/users/:id', function (req, res, next) {
-  const id = parseInt(req.params.id)
-  if (id >= 0 && id < users.length) {
-    res.json(users[id])
-  } else {
-    res.sendStatus(404)
-  }
-})
 
 export default router

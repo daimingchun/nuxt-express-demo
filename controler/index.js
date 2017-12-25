@@ -1,6 +1,6 @@
 import { Router } from 'express'
 
-import users from './users'
+import users from './api/users'
 
 const router = Router()
 

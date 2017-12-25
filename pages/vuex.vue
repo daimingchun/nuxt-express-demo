@@ -1,39 +1,25 @@
 <template>
   <section class="container">
-    <mt-header title="标题过长会隐藏后面的内容啊哈哈哈哈">
-      <router-link to="/" slot="left">
-        <mt-button icon="back">返回</mt-button>
-      </router-link>
-      <mt-button icon="more" slot="right"></mt-button>
-    </mt-header>
-    <h1 class="title">
-      USERS
-    </h1>
-    <ul class="users">
-<!--       <li v-for="(user, index) in users" :key="index" class="user">
-        <nuxt-link :to="{ name: 'id', params: { id: index }}">
-          {{ user.name }}
-        </nuxt-link>
-      </li> -->
-      <li>
-        <nuxt-link :to="{ name: 'cate'}">
-          使用axios直接获取测试服接口数据
-        </nuxt-link>
-      </li>
-      <li>
-        <nuxt-link :to="{ name: 'goods'}">
-          先使用node提供的接口，再获取测试服接口数据
-        </nuxt-link>
-      </li>
-    </ul>
-
+    <input v-model="inputVal" />
+    <div>
+      <cell v-model="name" @onClick="clickHandle"></cell>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div>子组件点击事件返回的值是：《{{childValue}}》</div>
   </section>
 </template>
 
 <script>
 import axios from '~/plugins/axios'
-
+import Cell from '~/components/Cell'
 export default {
+  components: {
+    Cell
+  },
   async asyncData () {
     // let { data } = await axios.get('/api/users')
     // return { users: data }
@@ -43,8 +29,26 @@ export default {
       title: 'Users'
     }
   },
+  data(){
+    return {
+      inputVal: '',
+      name: '老左',
+      childValue: ''
+    }
+  },
+  watch: {
+    inputVal(newVal, oldVal){
+      console.log(newVal)
+      this.name = newVal
+    }
+  },
   mounted(){
     console.log(this.users)
+  },
+  methods: {
+    clickHandle(value){
+      this.childValue = value
+    }
   }
 }
 </script>
