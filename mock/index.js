@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '~/plugins/axios'
 import MockAdapter from 'axios-mock-adapter'
 import { Goods } from './data/goods'
 

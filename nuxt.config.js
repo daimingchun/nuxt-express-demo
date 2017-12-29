@@ -9,28 +9,33 @@ module.exports = {
     title: '婚芭莎',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'viewport', content: ' width = device-width，initial-scale = 1，maximum-scale = 1，minimum-scale = 1，user-scalable = no' },
       { hid: 'description', name: 'description', content: 'Nuxt.js project' }
     ],
 
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://s1.tthunbohui.cn/static/css/jiehun.min-08103396.css'}
+      { rel: 'stylesheet', href: 'https://unpkg.com/mint-ui@1.0.2/lib/style.css'},
+      { rel: 'stylesheet', href: '/fonts/iconfont.css'}
+
     ]
   },
   env: envConfig,
   /*
   ** Global CSS
   */
-  //css: ['~/assets/css/main.css'],
   plugins: [
-  {src: '~/plugins/element-ui', ssr: true}, 
+  //{src: '~/plugins/element-ui', ssr: true}, 
   { src:  '~/plugins/mint-ui', ssr: true }],
   /*
   ** Add axios globally
   */
   build: {
-    vendor: ['axios'],
+    loaders: [{
+        test: /\.css$/,
+        loader: "style-loader!css-loader!postcss-loader"    
+    }],
+    postcss: [ require('postcss-px2rem')({remUnit: 75})],
     /*
     ** Run ESLINT on save
     */
