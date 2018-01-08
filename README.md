@@ -28,31 +28,7 @@ npm run start
 ```
 运行该命令后将启动`prodcution`运行环境，将会加载`~/config/prod.config.js`配置
 
-
 ### 目录结构
-<<<<<<< HEAD
-|--- api #管理异步接口
-|--- assets #放置未编译的静态资源
-|--- build #应用启动依赖，`npm run build`命令构建生成
-|--- components #组件目录，公共组件直接放在目录下，私有组件需新建目录再存放
-  |--- home #home页面的私有组件目录
-    |--- swiper.vue #swiper组件
-  |cell.vue #公共cell组件
-|--- config #执行环境配置
-|--- controler #暂没使用
-|--- doc #一些文档
-|--- layouts #页面布局 详情查看：https://zh.nuxtjs.org/api/pages-layout
-|--- mock #数据模拟
-|--- pages #视图
-|--- plugins #第三方插件
-|--- server #express启动配置
-|--- static #静态资源目录（编译assets文件后生成），使用`gulp build`完成构建
-|--- vuex #组件状态管理
-|--- gulpfile.js #gulp构建配置
-|--- nuxt.config.js #nuxt配置
-|--- backpack.config.js #backpack配置
-|....
-=======
 ```
     |--- api #管理异步接口  
     |--- assets #放置未编译的静态资源  
@@ -81,7 +57,7 @@ npm run start
  * vue组件如何开发？请参考官方文档：https://cn.vuejs.org/v2/guide/components.html
  * 自定义组件如何使用`v-model`指令？
   * 请查看`components/cell.vue`组件的写法，该组件在`pages/vuex.vue`里被调用
->>>>>>> 6676e7836c901118b214246981c4744c8e133e9b
+
 
 ### 样式处理
 Q: 如何引入外部样式?  
