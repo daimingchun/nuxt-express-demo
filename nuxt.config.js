@@ -9,15 +9,12 @@ module.exports = {
     title: '婚芭莎',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: ' width = device-width，initial-scale = 1，maximum-scale = 1，minimum-scale = 1，user-scalable = no' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'Nuxt.js project' }
     ],
-
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://unpkg.com/mint-ui@1.0.2/lib/style.css'},
-      { rel: 'stylesheet', href: '/fonts/iconfont.css'}
-
+      { rel: 'stylesheet', href: 'https://unpkg.com/mint-ui/lib/style.css'}
     ]
   },
   env: envConfig,
@@ -25,12 +22,19 @@ module.exports = {
   ** Global CSS
   */
   plugins: [
-  //{src: '~/plugins/element-ui', ssr: true}, 
-  { src:  '~/plugins/mint-ui', ssr: true }],
+  // {src: '~/plugins/element-ui', ssr: true}, 
+      { src:  '~/plugins/mint-ui', ssr: true },
+      { src: '~/plugins/swiper.js', ssr: false }
+  ],
+  css: [
+      'swiper/dist/css/swiper.css'
+  ],
+
   /*
   ** Add axios globally
   */
   build: {
+    vendor: ['axios', 'amfe-flexible'],
     loaders: [{
         test: /\.css$/,
         loader: "style-loader!css-loader!postcss-loader"    
@@ -49,7 +53,23 @@ module.exports = {
       //   })
       // }
     }
-  }
+  },
+  // router: {
+  //   middleware: 'header'
+  // } , 
+  modules: [
+    '@nuxtjs/axios',
+    '@nuxtjs/proxy'
+  ],
+  proxy: [
+      [
+        '/api', 
+        { 
+          target: 'http://api.wenxianghao.hapn.cc:20080', // api主机
+          pathRewrite: { '^/api' : '/' }
+        }
+    ]
+  ]
 }
 
 //console.log('合并后的配置',merge(defConfig, envConfig))

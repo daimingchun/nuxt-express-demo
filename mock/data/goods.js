@@ -12,8 +12,8 @@ for (let i = 0; i < 10; i++) {
     dateTime: Mock.Random.datetime(),
     sex: Mock.Random.integer(0, 1),
     avator: Mock.Random.image('50x50', '#EEEEEE'),
-    "price|200-9999": 200
-    
+    "price|200-9999": 200,
+    mockdata:true
   }));
 }
 
